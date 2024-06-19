@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 # from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
-from .models import Profile, Story
+from .models import Profile, Story, LikeStory
 
 
 # Create your views here.
@@ -83,3 +83,21 @@ def upload(request):
         return redirect('/')
     else:
         return redirect('/')
+
+
+def likes(request, id):
+    if request.method == 'GET':  # Corrected 'Get' to 'GET'
+        username = request.user.username
+        story = get_object_or_404(Story, id=id)
+
+        like_filter = LikeStory.objects.filter(post_id=id, username=username).first()
+        if like_filter is None:
+            new_like = LikeStory.objects.create(post_id=id, username=username)
+            story.no_of_likes = story.no_of_likes + 1
+        else:
+            like_filter.delete()
+            story.no_of_likes = story.no_of_likes - 1
+
+        story.save()
+
+    return redirect('/')

@@ -18,7 +18,7 @@ class Profile(models.Model):
 
 
 class Story(models.Model):
-    id = models.UUIDField(primary_key=True,default=uuid.uuid4())
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4())
     user = models.CharField(max_length=100)
     image = models.ImageField(upload_to='post-')
     caption = models.TextField()
@@ -36,6 +36,14 @@ class Story(models.Model):
         ('Community Engagement', 'Community Engagement'),
         ('Other', 'Other')])
 
-
     def __str__(self):
         return self.user
+
+
+class LikeStory(models.Model):
+    post_id = models.CharField(max_length=500)
+    username = models.CharField(max_length=100)  # Tracking which user liked the post
+    created_at = models.DateTimeField(auto_now_add=True)  # Tracking when the like was made
+
+    def __str__(self):
+        return self.username

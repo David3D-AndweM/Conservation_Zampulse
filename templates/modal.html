@@ -11,6 +11,7 @@
 <form action="{% url 'uploading' %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="mb-3">
+        <img src="{% static 'css' %}" alt="" class="m-1">
         <label for="recipient-name" class="col-form-label">Image</label>
         <input type="file" name="image" class="form-control" id="recipient-name">
     </div>

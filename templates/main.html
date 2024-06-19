@@ -31,6 +31,28 @@
         a {
             color: black;
         }
+
+        a:hover {
+            color: #365899;
+            text-decoration: none;
+        }
+
+        .post-card {
+            border: 1px solid #ddd;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        .post-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .post-content {
+            padding: 20px;
+        }
     </style>
 </head>
 
@@ -79,56 +101,66 @@
                     </a>
                 </li>
             </ul>
-        </nav>
+        </nav> 
         <!-- this is the main content code -->
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
             <!-- Your main content goes here -->
 
-{#           {% include "modal.html" %}#}
-{#           {% include "search.html" %}#}
+         
+{#        {% include "search.html" %}#}
 
-        <!-- home posts code -->
-            <div>{% for pos in story %}
-                <div class="container" id="{{pos.id}}">
-                    <div class="row">
-                        <div class="col-md-6 mx-auto">
-                            <div class="post-card"style="border: 1px solid black;margin: 50px;">
-                                <img src="{{pos.image.url}}" alt="Post Image" class="post-image"
-                                    style="height: 584px; width:468px; margin: 25px;">
-                                <div class="post-content"style="margin-left: 19px;">
-                                    <h5><a href="/profile/{{pos.user}}" style="text-decoration: none;">@{{pos.user}}</a></h5>
-                                    <p>{{pos.caption}}</p>
-                                    <p class="text-muted">{{pos.created_at}}</p>
-                                    <hr>
-                                    <div class="d-flex justify-content-between" style="margin-bottom: 8px; margin-right:10px;">
-
-                                        <a href="/like-post/{{pos.id}}" class="btn btn-outline-primary">Like</a>
-
-                                        {% if pos.no_of_likes == 0 %}
-                                        <p>0</p>
-                                        {% elif pos.no_of_likes == 1 %}
-                                        <p>Liked by {{pos.no_of_likes}} person</p>
-                                        {% else %}
-                                        <p>Liked by {{pos.no_of_likes}} people</p>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                            </div>
+ <!-- home posts code -->
+<div>{% for pos in story %}
+    <div class="container" id="{{pos.id}}">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="post-card">
+                    {% if pos.image %}
+                        <img src="{{pos.image.url}}" alt="Post Image" class="post-image">
+                    {% else %}
+                        <p>No image available</p>
+                    {% endif %}
+                    <div class="post-content">
+                        {% if pos.user %}
+                            <h5><a href="/profile/{{pos.user}}">@{{pos.user}}</a></h5>
+                        {% else %}
+                            <p>No user available</p>
+                        {% endif %}
+                        {% if pos.caption %}
+                            <p>{{pos.caption}}</p>
+                        {% else %}
+                            <p>No caption available</p>
+                        {% endif %}
+                        {% if pos.created_at %}
+                            <p class="text-muted">{{pos.created_at}}</p>
+                        {% else %}
+                            <p>No creation date available</p>
+                        {% endif %}
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <a href="/like-story/{{pos.id}}" class="btn btn-outline-primary">Like</a>
+                            {% if pos.no_of_likes == 0 %}
+                            <p>0</p>
+                            {% elif pos.no_of_likes == 1 %}
+                            <p>Liked by {{pos.no_of_likes}} person</p>
+                            {% else %}
+                            <p>Liked by {{pos.no_of_likes}} people</p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-                
-           {% include "modal.html" %}
-{#           {% include "search.html" %}#}
-
-                {% endfor %}
-
             </div>
+        </div>
+    </div>
+{% empty %}
+    <p>No stories available.</p>
+{% endfor %}
+</div>
 
 
         </main>
 
-
+{% include "modal.html" %}#}
     </div>
 </div>
 

@@ -27,6 +27,8 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('login/', views.loginn, name='loginn'),
     path('logout/', views.logout, name='logout'),
-    path('upload', views.upload, name='uploading')
+    path('upload', views.upload, name='uploading'),
+    path('like-story/<str:id>', views.likes, name='like-post'),
+    path('#')
 
 ]
