@@ -101,3 +101,23 @@ def likes(request, id):
         story.save()
 
     return redirect('/')
+
+
+def home_story(request, id):
+    story = Story.objects.get(id=id)
+    profile = Profile.objects.get(user=request.user)
+    context={
+        'story': story,
+        'profile': profile,
+    }
+
+    return render(request, 'main.html', context)
+
+def explore(request):
+    story = Story.objects.all().order_by('-created')
+    profile = Profile.objects.get(user=request.user)
+    context={
+        'story': story,
+        'profile': profile,
+    }
+    return render(request, 'explore.html', context)
