@@ -106,18 +106,34 @@ def likes(request, id):
 def home_story(request, id):
     story = Story.objects.get(id=id)
     profile = Profile.objects.get(user=request.user)
-    context={
+    context = {
         'story': story,
         'profile': profile,
     }
 
     return render(request, 'main.html', context)
 
+
 def explore(request):
-    story = Story.objects.all().order_by('-created')
-    profile = Profile.objects.get(user=request.user)
-    context={
-        'story': story,
-        'profile': profile,
+    stories = Story.objects.all().order_by('-created_at')  # Corrected ordering by 'created_at'
+    # profile = Profile.objects.get(user=request.user)
+    context = {
+        'stories': stories,  # Renamed 'story' to 'stories' for clarity (plural form)
+        # 'profile': profile,
     }
     return render(request, 'explore.html', context)
+
+def profile(request, id_user):
+    user_object=User.objects.get(username=id_user)
+    profile=Profile.objects.get(user=request.user)
+    user_profile =Profile.objects.get(user=user_object)
+    user_stories=Story.objects.filter(user=id_user).order_by('-created_at')
+    user_stories_length=len(user_stories)
+    context={
+        'user_object': user_object,
+        'user_profile': user_profile,
+        'user_stories': user_stories,
+        'user_stories_length': user_stories_length,
+        'profile': profile,
+    }
+    return render(request, 'profile.html', context)

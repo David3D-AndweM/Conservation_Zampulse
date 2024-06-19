@@ -30,6 +30,7 @@ urlpatterns = [
     path('upload', views.upload, name='uploading'),
     path('like-story/<str:id>', views.likes, name='like-post'),
     path('#<str:id>', views.home_story),
-    path('explore', views.explore, name='exploring')
+    path('explore/', views.explore, name='exploring'),
+    path('profile/<str:id_user>', views.profile, name='viewing_profile')
 
 ]
