@@ -29,6 +29,7 @@ urlpatterns = [
     path('logout/', views.logout, name='logout'),
     path('upload', views.upload, name='uploading'),
     path('like-story/<str:id>', views.likes, name='like-post'),
-    path('#')
+    path('#<str:id>', views.home_story),
+    path('explore', views.explore, name='exploring')
 
 ]
