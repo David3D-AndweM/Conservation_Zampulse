@@ -1,6 +1,6 @@
 # Zampulse
 
-![Zampulse](https://via.placeholder.com/728x90.png?text=Zampulse+Header+Image)
+![Zampulse](https://via.placeholder.com/728x90.png?text=ZambiaCanCode+Header+Image)
 
 Zampulse is a Django-based web application created to help you manage your projects efficiently. This documentation provides an overview of the project structure, setup instructions, and key features.
 
