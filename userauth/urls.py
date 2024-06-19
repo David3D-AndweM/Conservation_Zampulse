@@ -26,11 +26,11 @@ urlpatterns = [
     path('', views.home),
     path('signup/', views.signup, name='signup'),
     path('login/', views.loginn, name='loginn'),
-    path('logout/', views.logout, name='logout'),
+    path('logoutt/', views.logout, name='logout'),
     path('upload', views.upload, name='uploading'),
     path('like-story/<str:id>', views.likes, name='like-post'),
     path('#<str:id>', views.home_story),
     path('explore/', views.explore, name='exploring'),
-    path('profile/<str:id_user>', views.profile, name='viewing_profile')
+    path('profile/<str:id_user>', views.profile )
 
 ]

@@ -1,0 +1,58 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">New Post</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+<form action="{% url 'uploading' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+        <img src="{% static 'css' %}" alt="" class="m-1">
+        <label for="recipient-name" class="col-form-label">Image</label>
+        <input type="file" name="image" class="form-control" id="recipient-name">
+    </div>
+    <div class="mb-3">
+        <label for="message-text" class="col-form-label">Caption</label>
+        <textarea class="form-control" name="caption" placeholder="Caption..." id="message-text"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="challenge" class="col-form-label">Challenge</label>
+        <textarea class="form-control" name="challenge" placeholder="Challenge..." id="challenge"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="short_description" class="col-form-label">Short Description</label>
+        <textarea class="form-control" name="short_description" placeholder="Short Description..." id="short_description"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="full_description" class="col-form-label">Full Description</label>
+        <textarea class="form-control" name="full_description" placeholder="Full Description..." id="full_description"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="category" class="col-form-label">Category</label>
+        <select name="category" class="form-select">
+            <option value="Wildlife Conservation">Wildlife Conservation</option>
+            <option value="Environmental Conservation">Environmental Conservation</option>
+            <option value="Sustainable Development">Sustainable Development</option>
+            <option value="Community Engagement">Community Engagement</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="location" class="col-form-label">Location</label>
+        <input type="text" name="location" class="form-control" id="location">
+    </div>
+    <div class="mb-3">
+        <label for="google_map_link" class="col-form-label">Google Map Link</label>
+        <input type="text" name="google_map_link" class="form-control" id="google_map_link">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Create Post</button>
+    </div>
+</form>
+        </div>
+    </div>
+</div>
