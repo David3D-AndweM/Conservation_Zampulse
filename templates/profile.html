@@ -96,7 +96,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logoutt">
+                        <a class="nav-link" href="/logoutt/">
                             <i class="fa-solid fa-right-from-bracket mr-1"></i> Logout
                         </a>
                     </li>
@@ -106,7 +106,8 @@
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <!-- Your main content goes here -->
 {#                {% include "search.html" %}#}
-{#                {% include "profile_upload.html" %}#}
+                {% include "profile_upload.html" %}
+            {% include "modal.html" %}
                 {% include "edit_profile.html" %}
                 <section class="gradient-custom-2">
                     <div class="container py-5">
@@ -147,8 +148,7 @@
                                             <input type="hidden" value="{{user_object.username}}" name="user" />
                                             <button type="submit" class="btn btn-outline-dark"
                                                 data-mdb-ripple-color="dark" style="z-index: 1; margin: 5px;"
-                                                data-bs-toggle="modal" data-bs-target="#exampleModal1"
-                                                data-bs-whatever="@getbootstrap">
+                                                >
                                                 {{follow_unfollow}}
                                             </button>
 

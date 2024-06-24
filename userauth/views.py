@@ -2,34 +2,31 @@ from django.shortcuts import render, redirect, get_object_or_404
 # from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
-from .models import Profile, Story, LikeStory
+from .models import Profile, Story, LikeStory, Followers
 
 
 # Create your views here.
 def signup(request):
-    if request.method == 'POST':
-        fnm = request.POST.get('fmn')
-        emailid = request.POST.get('email')
-        pwd = request.POST.get('pwd')
-
-        try:
-            # Check if user already exists
-            if User.objects.filter(username=fnm).exists() or User.objects.filter(email=emailid).exists():
-                invalid = "User Already Exists"
-                return render(request, 'signup.html', {'invalid': invalid})
-
-            my_user = User.objects.create_user(username=fnm, email=emailid, password=pwd)
+    try:
+        if request.method == 'POST':
+            fnm = request.POST.get('fnm')
+            emailid = request.POST.get('emailid')
+            pwd = request.POST.get('pwd')
+            print(fnm, emailid, pwd)
+            my_user = User.objects.create_user(fnm, emailid, pwd)
             my_user.save()
-
-            new_profile = Profile.objects.create(user=my_user, id_user=my_user.id)
+            user_model = User.objects.get(username=fnm)
+            new_profile = Profile.objects.create(user=user_model, id_user=user_model.id)
             new_profile.save()
+            if my_user is not None:
+                login(request, my_user)
+                return redirect('/')
+            return redirect('/login')
 
-            login(request, my_user)
-            return redirect('/')
 
-        except Exception as e:
-            invalid = f"An error occurred: {str(e)}"
-            return render(request, 'signup.html', {'invalid': invalid})
+    except:
+        invalid = "User already exists"
+        return render(request, 'signup.html', {'invalid': invalid})
 
     return render(request, 'signup.html')
 
@@ -50,13 +47,14 @@ def loginn(request):
     return render(request, 'loginn.html')
 
 
-def logoutt(request):
+def logouttt(request):
     logout(request)
-    return redirect('/loginn')
+    return redirect('/login')
 
 
 def home(request):
-    story = Story.objects.all().order_by('-created_at')
+    following_users = Followers.objects.filter(follower=request.user.username).values_list('user', flat=True)
+    story = Story.objects.filter(Q(user=request.user.username) |Q(user__in=following_users)).order_by('-created_at')
     profile = Profile.objects.get(user=request.user)
     context = {
         'story': story,
@@ -68,7 +66,7 @@ def home(request):
 def upload(request):
     if request.method == 'POST':
         user = request.user.username
-        image = request.FILES.get('image-upload')
+        image = request.FILES.get('image')
         caption = request.POST['caption']
         challenge = request.POST.get('challenge')
         short_description = request.POST.get('short_description')
@@ -79,6 +77,7 @@ def upload(request):
         new_story = Story.objects.create(user=user, image=image, caption=caption, challenge=challenge,
                                          short_description=short_description, full_description=full_description,
                                          category=category, location=location, google_map_link=google_map_link)
+
         new_story.save()
         return redirect('/')
     else:
@@ -130,12 +129,27 @@ def profile(request, id_user):
     user_profile = Profile.objects.get(user=user_object)
     user_stories = Story.objects.filter(user=id_user).order_by('-created_at')
     user_stories_length = len(user_stories)
+
+    follower = request.user.username
+    user = id_user
+
+    if Followers.objects.filter(follower=follower, user=user).first():
+        follow_unfollow = 'Unfollow'
+    else:
+        follow_unfollow = 'Follow'
+
+    user_followers = len(Followers.objects.filter(user=id_user))
+    user_following = len(Followers.objects.filter(follower=id_user))
+
     context = {
         'user_object': user_object,
         'user_profile': user_profile,
         'user_stories': user_stories,
         'user_stories_length': user_stories_length,
         'profile': profile,
+        'follow_unfollow': follow_unfollow,
+        'user_followers': user_followers,
+        'user_following': user_following,
     }
 
     if request.user.username == id_user:
@@ -163,3 +177,20 @@ def profile(request, id_user):
         else:
             return render(request, 'profile.html', context)
     return render(request, 'profile.html', context)
+
+
+def follow(request):
+    if request.method == 'POST':
+        follower = request.POST['follower']
+        user = request.POST['user']
+
+        if Followers.objects.filter(follower=follower, user=user).first():
+            delete_follower = Followers.objects.get(follower=follower, user=user)
+            delete_follower.delete()
+            return redirect('/profile/' + user)
+        else:
+            new_follower = Followers.objects.create(follower=follower, user=user)
+            new_follower.save()
+            return redirect('/profile/' + user)
+    else:
+        return redirect('/')

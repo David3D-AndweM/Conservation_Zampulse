@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profile, Story, LikeStory
+from .models import Profile, Story, LikeStory, Followers
 
 
 # Register your models here.
@@ -24,3 +24,4 @@ class StoryAdmin(admin.ModelAdmin):
 
 
 admin.site.register(LikeStory)
+admin.site.register(Followers)
