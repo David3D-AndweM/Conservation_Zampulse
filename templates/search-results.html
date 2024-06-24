@@ -1,0 +1,62 @@
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+    }
+
+    h1 {
+        text-align: center;
+        color: #365899;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+
+    .table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    a {
+        color: #365899;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #000;
+    }
+</style>             
+
+                <h1>Search Results for "{{ query }}"</h1>
+                <div class="container">
+                    <h2>User Profiles</h2>
+                    
+                    <table class="table">
+                        
+                        <tbody>
+                            {% for user in users %}
+                            <tr>
+                                <td><h1><strong><a href="/profile/{{user.user.username}}">@{{user.user.username}}</a> </strong></h1></td>
+                                
+                            </tr>
+                            {% endfor %}
+                            
+                            
+                        </tbody>
+                    </table>
+                </div>
+                

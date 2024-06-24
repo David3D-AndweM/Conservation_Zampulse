@@ -19,8 +19,6 @@ Including another URLconf
 from django.urls import path
 from userauth import views
 
-
-
 urlpatterns = [
 
     path('', views.home),
@@ -33,5 +31,7 @@ urlpatterns = [
     path('explore/', views.explore, name='exploring'),
     path('profile/<str:id_user>', views.profile),
     path('follow', views.follow, name='follow'),
+    path('delete/<str:id>', views.delete, name='delete-post'),
+    path('search-results/', views.search_results, name='search-results'),
 
 ]
