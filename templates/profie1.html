@@ -20,10 +20,17 @@
                 <span>{{ user_stories_length }} Stories</span>
             </div>
             {% if request.user.username != user_object.username %}
-            <form method="post" action="{% url 'follow_unfollow' user_object.username %}">
-                {% csrf_token %}
-                <button type="submit">{{ follow_unfollow }}</button>
-            </form>
+            <form action="/follow" method="POST">
+                                            {% csrf_token %}  {% if user != user_profile.user %}
+                                            <input type="hidden" value="{{user.username}}" name="follower" />
+                                            <input type="hidden" value="{{user_object.username}}" name="user" />
+                                            <button type="submit" class="btn btn-outline-dark"
+                                                data-mdb-ripple-color="dark" style="z-index: 1; margin: 5px;"
+                                                >
+                                                {{follow_unfollow}}
+                                            </button>
+
+                                            {% endif %}
             {% endif %}
         </div>
     </div>

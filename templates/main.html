@@ -413,6 +413,15 @@
             const story = element.closest('.story');
             story.classList.toggle('full');
         }
+        
+        function toggleDescription(id) {
+    var element = document.getElementById('full-description-' + id);
+    if (element.style.display === "none") {
+        element.style.display = "block";
+    } else {
+        element.style.display = "none";
+    }
+}
 
     </script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

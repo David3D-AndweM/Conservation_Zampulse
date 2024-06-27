@@ -53,10 +53,10 @@ def logouttt(request):
 @login_required(login_url='/login')
 def home(request):
     following_users = Followers.objects.filter(follower=request.user.username).values_list('user', flat=True)
-    story = Story.objects.filter(Q(user=request.user.username) | Q(user__in=following_users)).order_by('-created_at')
+    storiez = Story.objects.filter(Q(user=request.user.username) | Q(user__in=following_users)).order_by('-created_at')
     profile = Profile.objects.get(user=request.user)
     context = {
-        'story': story,
+        'storiez': storiez,
         'profile': profile,
     }
     return render(request, 'main1.html', context)

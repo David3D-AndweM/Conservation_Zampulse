@@ -1,34 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="blog-slider">
-  <div class="blog-slider__wrp swiper-wrapper">
-    {% for story in story %}
-    <div class="blog-slider__item swiper-slide">
-      <div class="blog-slider__img">
-        {% if story.image %}
-        <img src="{{ story.image.url }}" alt="Story Image">
-        {% else %}
-        <div class="no-image-text">No image available</div>
-        {% endif %}
-      </div>
-      <div class="blog-slider__content">
-        <span class="blog-slider__code">{{ story.created_at|date:"d F Y" }}</span>
-        <div class="blog-slider__title">{{ story.caption }}</div>
-        <div class="blog-slider__text">{{ story.short_description }}</div>
-        <a href="/like-story/{{ story.id }}" class="blog-slider__button">Like</a>
-        {% if story.no_of_likes == 0 %}
-        <p>0</p>
-        {% elif story.no_of_likes == 1 %}
-        <p>Liked by {{ story.no_of_likes }} person</p>
-        {% else %}
-        <p>Liked by {{ story.no_of_likes }} people</p>
-        {% endif %}
-        <a href="/profile/{{ story.user.username }}" class="blog-slider__author">@{{ story.user.username }}</a>
-      </div>
-    </div>
+<section class="stories">
+    {% for pos in storiez %}
+    <section class="story blend-mode" style="margin-top: 10px;">
+        <div class="story-header">
+            <div>{{ pos.created_at }}</div>
+            <div><a href="/profile/{{ pos.user }}">@{{ pos.user }}</a></div>
+        </div>
+        <div class="story-images">
+            {% if pos.image %}
+            <img src="{{ pos.image.url }}" alt="Post Image">
+            {% else %}
+            <p>No image available</p>
+            {% endif %}
+        </div>
+        <div class="ritt-container">
+            <div class="ritt-content">
+                <h2 class="gradient-text">{{ pos.caption }}</h2>
+                <p class="truncate">{{ pos.short_description }}</p>
+            </div>
+        </div>
+        <p class="truncate" style="margin-left: 12px; margin-right: 15px; margin-top: 7px; margin-bottom: 9px;">{{ pos.full_description }}</p>
+        <div class="story-actions">
+            <a href="/like-story/{{ pos.id }}" class="btn liquid-btn">Like</a>
+            {% if pos.no_of_likes == 0 %}
+            <p>0</p>
+            {% elif pos.no_of_likes == 1 %}
+            <p>Liked by {{ pos.no_of_likes }} person</p>
+            {% else %}
+            <p>Liked by {{ pos.no_of_likes }} people</p>
+            {% endif %}
+            <button class="btn liquid-btn">Share</button>
+        </div>
+        <span class="story-author" style="margin-left: 6px; margin-top: 0px; padding-top: 0px; margin-bottom: 2px; padding-left: 9px;">
+            <a href="/profile/{{ pos.user }}">@{{ pos.user }}</a>
+            
+        </span>
+    </section>
+    {% empty %}
+    <p>No stories available.</p>
     {% endfor %}
-  </div>
-  <div class="blog-slider__pagination"></div>
-</div>
+</section>
+<div class="pagination"></div>
 {% endblock %}

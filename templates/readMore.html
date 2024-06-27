@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Cards</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="projcard-container">
+        
+      <div class="projcard projcard-blue">
+        <div class="projcard-innerbox">
+          <img class="projcard-img" src="https://picsum.photos/800/600?image=1041" />
+          <div class="projcard-textbox">
+            <div class="projcard-title">Card Title</div>
+            <div class="projcard-subtitle">This explains the card in more detail</div>
+            <div class="projcard-bar"></div>
+            <div class="projcard-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+            <div class="projcard-tagbox">
+              <span class="projcard-tag">HTML</span>
+              <span class="projcard-tag">CSS</span>
+            </div>
+            <button class="read-more-btn" onclick="openModal('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')">Read More</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Add more cards as needed -->
+      
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <p id="modal-text"></p>
+      </div>
+    </div>
+
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

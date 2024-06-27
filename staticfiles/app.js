@@ -12,15 +12,16 @@
     setInterval(showNextStory, 3000); // Change story every 3 seconds
 });
 
+// static/js/scripts.js
 var swiper = new Swiper('.blog-slider', {
-  spaceBetween: 30,
-  effect: 'fade',
-  loop: true,
-  mousewheel: {
-    invert: false,
-  },
-  pagination: {
-    el: '.blog-slider__pagination',
-    clickable: true,
-  }
+    spaceBetween: 30,
+    effect: 'fade',
+    loop: true,
+    mousewheel: {
+        invert: false,
+    },
+    pagination: {
+        el: '.blog-slider__pagination',
+        clickable: true,
+    }
 });
