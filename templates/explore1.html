@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="explore-container">
+    {% for story in stories %}
+    <div class="story-card {% if forloop.first %}active{% endif %}">
+        {% if story.image %}
+        <div class="story-image" style="background-image: url('{{ story.image.url }}');"></div>
+        {% else %}
+        <div class="story-image" style="background-color: #333;">
+            <p class="no-image-text">No image available</p>
+        </div>
+        {% endif %}
+        <div class="story-details">
+            <h2>{{ story.user.username }}</h2>
+            <p>{{ story.caption }}</p>
+            <p>{{ story.short_description }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

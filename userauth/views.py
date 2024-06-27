@@ -5,6 +5,7 @@ from .models import Profile, Story, LikeStory, Followers
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
+
 # Create your views here.
 def signup(request):
     try:
@@ -28,6 +29,7 @@ def signup(request):
 
     return render(request, 'signup.html')
 
+
 def loginn(request):
     if request.method == 'POST':
         fnm = request.POST.get('fnm')
@@ -41,10 +43,12 @@ def loginn(request):
 
     return render(request, 'loginn.html')
 
+
 @login_required(login_url='/login')
 def logouttt(request):
     logout(request)
     return redirect('/login')
+
 
 @login_required(login_url='/login')
 def home(request):
@@ -53,9 +57,10 @@ def home(request):
     profile = Profile.objects.get(user=request.user)
     context = {
         'story': story,
-        'Profile': profile,
+        'profile': profile,
     }
-    return render(request, 'main.html', context)
+    return render(request, 'main1.html', context)
+
 
 @login_required(login_url='/login')
 def upload(request):
@@ -77,6 +82,7 @@ def upload(request):
     else:
         return redirect('/')
 
+
 @login_required(login_url='/login')
 def likes(request, id):
     if request.method == 'GET':
@@ -92,6 +98,7 @@ def likes(request, id):
         story.save()
     return redirect('/')
 
+
 @login_required(login_url='/login')
 def home_story(request, id):
     story = Story.objects.get(id=id)
@@ -100,7 +107,8 @@ def home_story(request, id):
         'story': story,
         'profile': profile,
     }
-    return render(request, 'main.html', context)
+    return render(request, 'main1.html', context)
+
 
 @login_required(login_url='/login')
 def explore(request):
@@ -110,7 +118,8 @@ def explore(request):
         'stories': stories,
         'profile': profile,
     }
-    return render(request, 'explore.html', context)
+    return render(request, 'explore1.html', context)
+
 
 @login_required(login_url='/login')
 def profile(request, id_user):
@@ -161,8 +170,9 @@ def profile(request, id_user):
                 user_profile.save()
             return redirect('/profile/' + id_user)
         else:
-            return render(request, 'profile.html', context)
-    return render(request, 'profile.html', context)
+            return render(request, 'profie1.html', context)
+    return render(request, 'profie1.html', context)
+
 
 @login_required(login_url='/login')
 def follow(request):
@@ -180,11 +190,13 @@ def follow(request):
     else:
         return redirect('/')
 
+
 @login_required(login_url='/login')
 def delete(request, id):
     story = Story.objects.get(id=id)
     story.delete()
     return redirect('/profile/' + request.user.username)
+
 
 @login_required(login_url='/login')
 def search_results(request):
@@ -197,3 +209,21 @@ def search_results(request):
         'storiez': storiez,
     }
     return render(request, 'search-results.html', context)
+
+# def nav(request, user_id):
+#     if request.method == 'get':
+#         profiles = Profile.objects.get(user=user_id)
+#         context = {
+#             'profiles': profiles,
+#         }
+#         return render(request, 'navbar.html', context)
+    # # stories = Story.objects.all().order_by('-created_at')
+    # profiles = Profile.objects.get(user=request.user_id)
+    # context = {
+    #     # 'stories': stories,
+    #     'profiles': profiles,
+    # }
+    # return render(request, 'navbar.html', context)
+
+def base(request):
+    return render(request, 'base.html')

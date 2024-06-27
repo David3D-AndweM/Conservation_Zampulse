@@ -13,41 +13,78 @@
 
     <title>Explore</title>
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
-    <style>
-        /* Custom styles for the sidebar */
+ <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #005864, #00ffd9);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
-        .sidebar {
+        .navbar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 250px;
+            height: 100%;
             background-color: #f8f9fa;
-            height: 100vh;
-            color: black;
+            padding: 20px;
+            overflow-y: auto;
+            transition: left 0.3s;
         }
-
-        .profile-pic {
+        .navbar .profile-pic {
             width: 60px;
             height: 60px;
             border-radius: 50%;
             object-fit: cover;
+            margin: 0 auto;
         }
-
-        a {
+        .navbar h4 {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .navbar ul li {
+            margin: 15px 0;
+        }
+        .navbar ul li a {
             color: black;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
         }
-
+        .navbar ul li a i {
+            margin-right: 10px;
+        }
+        .navbar .highlight-section {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
         .image_s {
             position: relative;
-            width: 213px;
+            width: 100%;
+            margin-bottom: 20px;
         }
-
         .image__img {
             display: block;
             width: 100%;
+            height: auto;
         }
-
         .image__overlay {
             position: absolute;
             top: 0;
@@ -63,117 +100,96 @@
             opacity: 0;
             transition: opacity 0.25s;
         }
-
         .image__overlay>* {
             transform: translateY(20px);
             transition: transform 0.25s;
         }
-
         .image_s:hover .image__img {
             opacity: 0.1;
         }
-
         .image__overlay:hover {
             opacity: 1;
         }
-
         .image__overlay:hover>* {
             transform: translateY(0);
         }
-
         .image__title {
             font-size: 2em;
             font-weight: bold;
         }
-
         .image__description {
             font-size: 1.25em;
             margin-top: 0.25em;
         }
+        .toggle-btn {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #005864;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .navbar-hidden {
+            left: -250px;
+        }
+        .content-expanded {
+            margin-left: 20px;
+        }
     </style>
 </head>
-
 <body>
-
-    <div class="container-fluid">
-        <div class="row">
-            <nav class="col-md-2 d-none d-md-block sidebar" style="position: fixed;">
-                <div class="text-center mt-3">
-                    <img src="{{ profile.profileimg.url }}" alt="Profile Picture" class="profile-pic">
-                    <h4 class="mt-2"><a href="/profile/{{ user }}" style="text-decoration:none;">@{{ user }}</a>
-                    </h4>
-                </div>
-                <ul class="nav flex-column mt-4">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/">
-                            <i class="fa-solid fa-house mr-1"></i> Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/explore">
-                            <i class="fa-solid fa-compass mr-1"></i> Explore
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                            <i class="fa-solid fa-magnifying-glass mr-1"></i> Search
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            data-bs-whatever="@getbootstrap">
-                            <i class="fa-solid fa-circle-plus mr-1"></i> Create Post
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/profile/{{ profile.user }}">
-                            <i class="fa-solid fa-user mr-1"></i> Profile
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logoutt">
-                            <i class="fa-solid fa-right-from-bracket mr-1"></i> Logout
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-
-                {% include "modal.html" %}
-                 {% include "search.html" %}
-
-                <div class="container text-center" style="padding: 10px; margin-top:20px;">
-                    <div class="row row-cols-3">
-                        {% for pos in stories %}
-                        <div class="col m-2 image_s" style="margin-bottom:10px;">
-                            {% if pos.image %}
-                            <img class="image__img" src="{{ pos.image.url }}" alt="Post Image"
-                                style="max-width: 213px; max-height:213px">
-                            {% else %}
-                            <p>No image available</p>
-                            {% endif %}
-                            <div class="image__overlay image__overlay--primary">
-                                <div class="image__title"><a href="/profile/{{ pos.user }}">@{{ pos.user }}</a></div>
-                                <p class="image__description">
-                                    {{ pos.caption }}
-                                </p>
-                            </div>
-                        </div>
-                        {% endfor %}
-
-                    </div>
-                </div>
-            </main>
-{#        {% include "modal.html" %}#}
+    <button class="toggle-btn" onclick="toggleNavbar()">☰</button>
+    <div class="navbar" id="navbar">
+        <div class="text-center mt-3">
+            <img src="{{ profile.profileimg.url }}" alt="Profile Picture" class="profile-pic">
+            <h4 class="mt-2"><a href="/profile/{{ user }}" style="text-decoration:none;">@{{ user }}</a></h4>
+        </div>
+        <ul>
+            <li><a href="/"><i class="fa-solid fa-house mr-1"></i> Home</a></li>
+            <li><a href="/explore"><i class="fa-solid fa-compass mr-1"></i> Explore</a></li>
+            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal3"><i class="fa-solid fa-magnifying-glass mr-1"></i> Search</a></li>
+            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="fa-solid fa-circle-plus mr-1"></i> Create Post</a></li>
+            <li><a href="/profile/{{ profile.user }}"><i class="fa-solid fa-user mr-1"></i> Profile</a></li>
+            <li><a href="/logoutt"><i class="fa-solid fa-right-from-bracket mr-1"></i> Logout</a></li>
+        </ul>
+        <div class="highlight-section">
+            <h5>Highlight</h5>
+            <p>Check out the latest events and updates!</p>
         </div>
     </div>
-
+    <main class="content" id="content">
+        {% include "modal.html" %}
+        {% include "search.html" %}
+        <div class="container text-center" style="padding: 10px; margin-top:20px;">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for pos in stories %}
+                <div class="col image_s">
+                    {% if pos.image %}
+                    <img class="image__img" src="{{ pos.image.url }}" alt="Post Image">
+                    {% else %}
+                    <p>No image available</p>
+                    {% endif %}
+                    <div class="image__overlay image__overlay--primary">
+                        <div class="image__title"><a href="/profile/{{ pos.user }}">@{{ pos.user }}</a></div>
+                        <p class="image__description">{{ pos.caption }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    <script>
+        function toggleNavbar() {
+            const navbar = document.getElementById('navbar');
+            const content = document.getElementById('content');
+            navbar.classList.toggle('navbar-hidden');
+            content.classList.toggle('content-expanded');
+        }
+    </script>
     <script src="{% static 'js/app.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-
 </html>

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-image">
+            {% if user_profile.profileimg %}
+            <img src="{{ user_profile.profileimg.url }}" alt="Profile Image">
+            {% else %}
+            <img src="/static/images/default_profile.png" alt="Default Profile Image">
+            {% endif %}
+        </div>
+        <div class="profile-info">
+            <h2>{{ user_object.username }}</h2>
+            <p>{{ user_profile.bio }}</p>
+            <p>{{ user_profile.location }}</p>
+            <div class="profile-stats">
+                <span>{{ user_followers }} Followers</span>
+                <span>{{ user_following }} Following</span>
+                <span>{{ user_stories_length }} Stories</span>
+            </div>
+            {% if request.user.username != user_object.username %}
+            <form method="post" action="{% url 'follow_unfollow' user_object.username %}">
+                {% csrf_token %}
+                <button type="submit">{{ follow_unfollow }}</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+    <div class="stories-container">
+        {% for story in user_stories %}
+        <div class="story-card">
+            {% if story.image %}
+            <div class="story-image" style="background-image: url('{{ story.image.url }}');"></div>
+            {% else %}
+            <div class="story-image" style="background-color: #333;">
+                <p class="no-image-text">No image available</p>
+            </div>
+            {% endif %}
+            <div class="story-details">
+                <h2>{{ story.caption }}</h2>
+                <p>{{ story.short_description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

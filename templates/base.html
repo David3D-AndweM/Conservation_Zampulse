@@ -6,8 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{#    <title>Zampulse</title>#}
-<title>{% block title %}Zampulse{% endblock %}</title>
+    <title>Zampulse</title>
+
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -17,8 +17,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    
     <script src="https://kit.fontawesome.com/cb792c0850.js" crossorigin="anonymous"></script>
   <style>
         body {
@@ -332,69 +330,11 @@
 {#                <a href="/profile/{{ user }}" style="text-decoration:none; color: white;">@{{ user }}</a>#}
             </div>
         </section>
-{#    <main class="content" id="content">#}
-{#        <section class="header">#}
-{#            <input type="text" placeholder="Search...">#}
-{#            <div class="user-profile">#}
-{#                <div class="user-name">@{{ user }}</div>#}
-{#                <img src="{{ profile.profileimg.url }}"  alt="User Profile" width="40" height="40">#}
-{#                <a href="/profile/{{ user }}" style="text-decoration:none; color: white;">@{{ user }}</a>#}
-{#            </div>#}
-{#        </section>#}
-{#        <section class="stories">#}
-{#            {% for pos in story %}#}
-{#            <section class="story blend-mode" style="margin-top: 10px;">#}
-{#                <div class="story-header">#}
-{#                    <div>{{ pos.created_at }}</div>#}
-{#                    <div><a href="/profile/{{ pos.user }}">@{{ pos.user }}</a></div>#}
-{#                </div>#}
-{#                <div class="story-images">#}
-{#                    {% if pos.image %}#}
-{#                    <img src="{{ pos.image.url }}" alt="Post Image">#}
-{#                    {% else %}#}
-{#                    <p>No image available</p>#}
-{#                    {% endif %}#}
-{#                </div>#}
-{#                <div class="ritt-container">#}
-{#                    <div class="ritt-content">#}
-{#                        <h2 class="gradient-text">{{ pos.caption }}</h2>#}
-{#                        <p class="truncate">{{ pos.short_description }}</p>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <p class="truncate" style="margin-left: 12px;margin-right: 15px;margin-top: 7px;margin-bottom: 9px;">{{ pos.full_description }}</p>#}
-{#                <div class="story-actions">#}
-{#                    <a href="/like-story/{{ pos.id }}" class="btn liquid-btn">Like</a>#}
-{#                    {% if pos.no_of_likes == 0 %}#}
-{#                    <p>0</p>#}
-{#                    {% elif pos.no_of_likes == 1 %}#}
-{#                    <p>Liked by {{ pos.no_of_likes }} person</p>#}
-{#                    {% else %}#}
-{#                    <p>Liked by {{ pos.no_of_likes }} people</p>#}
-{#                    {% endif %}#}
-{#                    <button class="liquid-btn">Share</button>#}
-{#                </div>#}
-{#                <span class="story-author" style="margin-left: 6px;margin-top: 0px;padding-top: 0px;margin-bottom: 2px;padding-left: 9px;">#}
-{#                    <a href="/profile/{{ pos.user }}">@{{ pos.user }}</a>#}
-{#                </span>#}
-{#            </section>#}
-{#            {% empty %}#}
-{#            <p>No stories available.</p>#}
-{#            {% endfor %}#}
-{#        </section>#}
-{#        <div class="pagination">#}
-{#            <a href="#">&laquo;</a>#}
-{#            <a href="#">1</a>#}
-{#            <a href="#">2</a>#}
-{#            <a href="#">3</a>#}
-{#            <a href="#">4</a>#}
-{#            <a href="#">5</a>#}
-{#            <a href="#">&raquo;</a>#}
-{#        </div>#}
-{#    </main>#}
 <div class="wrapper">
-    {% block content %} 
+    {% block content %}
         
     {% endblock %}
+
 </div>
     <script>
         function toggleNavbar() {
@@ -415,7 +355,6 @@
         }
 
     </script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
  <script src="{% static 'js/app.js'%}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

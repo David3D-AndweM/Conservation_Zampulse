@@ -33,5 +33,7 @@ urlpatterns = [
     path('follow', views.follow, name='follow'),
     path('delete/<str:id>', views.delete, name='delete-post'),
     path('search-results/', views.search_results, name='search-results'),
+    # path('navigate/', views.nav, name='navigate'),
+    path('base/', views.base, name='base'),
 
 ]

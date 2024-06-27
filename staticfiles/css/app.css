@@ -1,0 +1,468 @@
+/* Add this CSS to your static CSS file (e.g., styles.css) */
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+
+.explore-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.story-card {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.story-card:hover {
+    transform: scale(1.05);
+}
+
+.story-image {
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-image-text {
+    color: #888;
+    font-size: 1.2em;
+}
+
+.story-details {
+    padding: 15px;
+}
+
+.story-details h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.story-details p {
+    margin-bottom: 10px;
+}
+
+
+
+
+/* Add this CSS to your static CSS file (e.g., styles.css) */
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+
+.profile-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-image img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.profile-info {
+    margin-left: 20px;
+}
+
+.profile-info h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.profile-info p {
+    margin-bottom: 5px;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.profile-stats span {
+    background-color: #1e1e1e;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.profile-info button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.stories-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.story-card {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.story-card:hover {
+    transform: scale(1.05);
+}
+
+.story-image {
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-image-text {
+    color: #888;
+    font-size: 1.2em;
+}
+
+.story-details {
+    padding: 15px;
+}
+
+.story-details h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.story-details p {
+    margin-bottom: 10px;
+}
+
+
+
+
+/* Add this CSS to your static CSS file (e.g., styles.css) */
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+
+.home-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.stories-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.story-card {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.story-card:hover {
+    transform: scale(1.05);
+}
+
+.story-image {
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-image-text {
+    color: #888;
+    font-size: 1.2em;
+}
+
+.story-details {
+    padding: 15px;
+}
+
+.story-details h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.story-details p {
+    margin-bottom: 10px;
+}
+
+.like-section {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.like-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
+/* Add this CSS to your static CSS file (e.g., styles.css) */
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+
+.home-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.stories-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.story-card {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.story-card:hover {
+    transform: scale(1.05);
+}
+
+.story-image {
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-image-text {
+    color: #888;
+    font-size: 1.2em;
+}
+
+.story-details {
+    padding: 15px;
+}
+
+.story-details h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.story-details p {
+    margin-bottom: 10px;
+}
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.story-actions {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.liquid-btn {
+    background-color: #ff007b;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.story-author {
+    display: block;
+    margin-top: 10px;
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.blog-slider {
+  width: 95%;
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  background: #1e1e1e;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 25px;
+  border-radius: 25px;
+  height: 400px;
+  transition: all .3s;
+}
+
+.blog-slider__wrp {
+  display: flex;
+}
+
+.blog-slider__item {
+  display: flex;
+  align-items: center;
+}
+
+.blog-slider__img {
+  width: 300px;
+  flex-shrink: 0;
+  height: 300px;
+  background-color: #333;
+  box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.blog-slider__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
+  transition: all .3s;
+}
+
+.blog-slider__content {
+  padding-left: 25px;
+}
+
+.blog-slider__code {
+  color: #7b7992;
+  margin-bottom: 15px;
+  display: block;
+  font-weight: 500;
+}
+
+.blog-slider__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.blog-slider__text {
+  color: #a8a8a8;
+  margin-bottom: 30px;
+  line-height: 1.5em;
+}
+
+.blog-slider__button {
+  display: inline-flex;
+  background-color: #007bff;
+  padding: 15px 35px;
+  border-radius: 50px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.blog-slider__author {
+  display: block;
+  margin-top: 10px;
+  color: #007bff;
+}
+
+.blog-slider__pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-pagination-bullet {
+  width: 11px;
+  height: 11px;
+  display: block;
+  border-radius: 10px;
+  background: #062744;
+  opacity: 0.2;
+  transition: all .3s;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #007bff;
+}

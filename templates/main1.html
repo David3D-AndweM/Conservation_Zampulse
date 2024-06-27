@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="blog-slider">
+  <div class="blog-slider__wrp swiper-wrapper">
+    {% for story in story %}
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        {% if story.image %}
+        <img src="{{ story.image.url }}" alt="Story Image">
+        {% else %}
+        <div class="no-image-text">No image available</div>
+        {% endif %}
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code">{{ story.created_at|date:"d F Y" }}</span>
+        <div class="blog-slider__title">{{ story.caption }}</div>
+        <div class="blog-slider__text">{{ story.short_description }}</div>
+        <a href="/like-story/{{ story.id }}" class="blog-slider__button">Like</a>
+        {% if story.no_of_likes == 0 %}
+        <p>0</p>
+        {% elif story.no_of_likes == 1 %}
+        <p>Liked by {{ story.no_of_likes }} person</p>
+        {% else %}
+        <p>Liked by {{ story.no_of_likes }} people</p>
+        {% endif %}
+        <a href="/profile/{{ story.user.username }}" class="blog-slider__author">@{{ story.user.username }}</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="blog-slider__pagination"></div>
+</div>
+{% endblock %}
