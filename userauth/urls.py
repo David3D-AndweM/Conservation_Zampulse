@@ -36,4 +36,5 @@ urlpatterns = [
     # path('navigate/', views.nav, name='navigate'),
     path('base/', views.base, name='base'),
 
+
 ]

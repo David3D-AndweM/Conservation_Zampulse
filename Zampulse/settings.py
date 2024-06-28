@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "userauth",  # Ensure this matches your app name
+    "userauth",
+    "Events.apps.EventsConfig"  # Ensure this matches your app name
 ]
 
 MIDDLEWARE = [

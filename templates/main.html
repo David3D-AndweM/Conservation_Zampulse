@@ -18,7 +18,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Font Awesome -->
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    
+
     <script src="https://kit.fontawesome.com/cb792c0850.js" crossorigin="anonymous"></script>
   <style>
         body {
@@ -68,7 +68,7 @@
         .navbar ul {
             list-style-type: none;
             padding: 0;
-            
+
         }
 
         .navbar ul li {
@@ -126,7 +126,7 @@
             display: flex;
             justify-content: right;
             align-items: center;
-            
+
             {#border-bottom: 1px solid #ddd;#}
             background-color: #333;
             color: white;
@@ -172,7 +172,7 @@
             background-color: rgba(137, 127, 142, 0.38);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             color: black;
-            
+
         }
 
         .story:hover {
@@ -321,7 +321,7 @@
             <h5>Highlight</h5>
             <p>Check out the latest events and updates!</p>
         </div>
-    </div>  
+    </div>
 {% include "modal.html" %}
 {% include "search.html" %}
 <section class="header">
@@ -392,8 +392,8 @@
 {#        </div>#}
 {#    </main>#}
 <div class="wrapper">
-    {% block content %} 
-        
+    {% block content %}
+
     {% endblock %}
 </div>
     <script>
@@ -408,12 +408,12 @@
                 content.classList.add('content-expanded');
             }
         }
-            
+
         function toggleFullDescription(element) {
             const story = element.closest('.story');
             story.classList.toggle('full');
         }
-        
+
         function toggleDescription(id) {
     var element = document.getElementById('full-description-' + id);
     if (element.style.display === "none") {

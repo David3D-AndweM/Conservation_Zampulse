@@ -12,6 +12,7 @@
         </div>
         {% endif %}
         <div class="story-details">
+            <div class="image__title"><a href="/profile/{{ story.user }}">@{{ story.user }}</a></div>
             <h2>{{ story.user.username }}</h2>
             <p>{{ story.caption }}</p>
             <p>{{ story.short_description }}</p>

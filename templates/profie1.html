@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+   {% include "edit_profile.html" %} 
+   {% include "profile_upload.html" %}
 <div class="profile-container">
     <div class="profile-header">
         <div class="profile-image">
@@ -19,18 +21,20 @@
                 <span>{{ user_following }} Following</span>
                 <span>{{ user_stories_length }} Stories</span>
             </div>
-            {% if request.user.username != user_object.username %}
+            
+            {% if request.user.username == user_profile.user.username %}
+            <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark" style="z-index: 1; margin: 5px;" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@getbootstrap">
+                Edit profile
+            </button>
+            {% else %}
             <form action="/follow" method="POST">
-                                            {% csrf_token %}  {% if user != user_profile.user %}
-                                            <input type="hidden" value="{{user.username}}" name="follower" />
-                                            <input type="hidden" value="{{user_object.username}}" name="user" />
-                                            <button type="submit" class="btn btn-outline-dark"
-                                                data-mdb-ripple-color="dark" style="z-index: 1; margin: 5px;"
-                                                >
-                                                {{follow_unfollow}}
-                                            </button>
-
-                                            {% endif %}
+                {% csrf_token %}
+                <input type="hidden" value="{{ user.username }}" name="follower" />
+                <input type="hidden" value="{{ user_object.username }}" name="user" />
+                <button type="submit" class="btn btn-outline-dark" data-mdb-ripple-color="dark" style="z-index: 1; margin: 5px;">
+                    {{ follow_unfollow }}
+                </button>
+            </form>
             {% endif %}
         </div>
     </div>
@@ -47,6 +51,12 @@
             <div class="story-details">
                 <h2>{{ story.caption }}</h2>
                 <p>{{ story.short_description }}</p>
+                <div class="card-body">
+                    <h5 class="card-title">{{ story.caption }}</h5>
+                    {% if request.user == user_profile.user %} 
+                    <a href="/delete/{{ story.id }}"><i class="fa-solid fa-trash"></i></a>
+                    {% endif %}
+                </div>
             </div>
         </div>
         {% endfor %}

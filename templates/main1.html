@@ -3,7 +3,7 @@
 {% block content %}
 <section class="stories">
     {% for pos in storiez %}
-    <section class="story blend-mode" style="margin-top: 10px;">
+    <section class="story " style="margin-top: 10px;">
         <div class="story-header">
             <div>{{ pos.created_at }}</div>
             <div><a href="/profile/{{ pos.user }}">@{{ pos.user }}</a></div>
@@ -35,7 +35,7 @@
         </div>
         <span class="story-author" style="margin-left: 6px; margin-top: 0px; padding-top: 0px; margin-bottom: 2px; padding-left: 9px;">
             <a href="/profile/{{ pos.user }}">@{{ pos.user }}</a>
-            
+
         </span>
     </section>
     {% empty %}
