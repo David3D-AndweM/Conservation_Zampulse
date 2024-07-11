@@ -1,0 +1,28 @@
+{
+    "builds": [
+        {
+            "src": "Zampulse/wsgi.py",
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "15mb",
+                "runtime": "python3.12"
+            },
+            "env": {
+                "DJANGO_SETTINGS_MODULE": "Zampulse.settings"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": "/media/(.*)",
+            "dest": "Zampulse/media/$1"
+        },
+        {
+            "src": "/admin/(.*)",
+            "dest": "Zampulse/wsgi.py"
+        }
+    ]
+}
