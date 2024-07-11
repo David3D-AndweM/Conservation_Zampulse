@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import dj_database_url
 from pathlib import Path
 from decouple import config
 
@@ -27,7 +27,7 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split("")
 
 # Application definition
 
@@ -80,6 +80,8 @@ DATABASES = {
     }
 }
 
+DATABASES["default"] = dj_database_url.parse("postgresql://zampulsedb_user:S6H7OJS2BCtYy7R2OEuEKHSYEjOwNziz@dpg"
+                                             "-cq7kt6dds78s73d8q7i0-a.oregon-postgres.render.com/zampulsedb")
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
