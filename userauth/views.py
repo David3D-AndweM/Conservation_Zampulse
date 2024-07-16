@@ -4,7 +4,7 @@ from django.contrib.auth import login, authenticate, logout
 from .models import Profile, Story, LikeStory, Followers
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-
+from django.conf import settings
 
 
 
