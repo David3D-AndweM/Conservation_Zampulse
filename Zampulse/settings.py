@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import dj_database_url
 from pathlib import Path
-from decouple import config
+# from decouple import config
 
 import os
 
@@ -20,9 +20,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
+# DJANGO_SECRET_KEY = "b@x!8q&$3j%k^l)m+n_o:p{q}r~s|t>u<v=w?y.z;"
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('DJANGO_SECRET_KEY')
+SECRET_KEY = ('b@x!8q&$3j%k^l)m+n_o:p{q}r~s|t>u<v=w?y.z;')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
@@ -80,8 +80,7 @@ DATABASES = {
     }
 }
 
-DATABASES["default"] = dj_database_url.parse("postgresql://zampulsedb_user:S6H7OJS2BCtYy7R2OEuEKHSYEjOwNziz@dpg"
-                                             "-cq7kt6dds78s73d8q7i0-a.oregon-postgres.render.com/zampulsedb")
+DATABASES["default"] = dj_database_url.parse("postgresql://zampulsedb_user:S6H7OJS2BCtYy7R2OEuEKHSYEjOwNziz@dpg-cq7kt6dds78s73d8q7i0-a.oregon-postgres.render.com/zampulsedb")
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
