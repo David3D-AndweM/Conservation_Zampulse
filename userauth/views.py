@@ -15,21 +15,36 @@ def signup(request):
             fnm = request.POST.get('fnm')
             emailid = request.POST.get('emailid')
             pwd = request.POST.get('pwd')
-            print(fnm, emailid, pwd)
+            le_password = request.POST.get('le_password')  # Retrieve registration password from form
+
+            # Check if the provided password matches the secret registration password (LE)
+            if le_password != settings.LE:
+                raise ValueError("Invalid registration password")
+
+            # Create a new user
             my_user = User.objects.create_user(fnm, emailid, pwd)
             my_user.save()
-            user_model = User.objects.get(username=fnm)
-            new_profile = Profile.objects.create(user=user_model, id_user=user_model.id)
+
+            # Create a profile for the user
+            new_profile = Profile.objects.create(user=my_user, id_user=my_user.id)
             new_profile.save()
+
+            # Log in the user
             if my_user is not None:
                 login(request, my_user)
                 return redirect('/')
             return redirect('/login')
-    except:
-        invalid = "User already exists"
+
+    except ValueError as ve:
+        invalid = str(ve)
+        return render(request, 'signup.html', {'invalid': invalid})
+
+    except Exception as e:
+        invalid = "User creation failed"
         return render(request, 'signup.html', {'invalid': invalid})
 
     return render(request, 'signup.html')
+
 
 
 def loginn(request):
