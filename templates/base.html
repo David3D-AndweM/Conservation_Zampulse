@@ -18,288 +18,288 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/cb792c0850.js" crossorigin="anonymous"></script>
-  <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, rgb(22, 27, 34), #2a2a2a);
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
+  <!--<style>-->
+  <!--      body {-->
+  <!--          font-family: 'Arial', sans-serif;-->
+  <!--          background: linear-gradient(135deg, rgb(22, 27, 34), #2a2a2a);-->
+  <!--          color: #333;-->
+  <!--          margin: 0;-->
+  <!--          padding: 0;-->
+  <!--      }-->
 
-        .container {
-            display: flex;
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
+  <!--      .container {-->
+  <!--          display: flex;-->
+  <!--          max-width: 1200px;-->
+  <!--          margin: 0 auto;-->
+  <!--          background-color: #fff;-->
+  <!--          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+  <!--          border-radius: 10px;-->
+  <!--          overflow: hidden;-->
+  <!--      }-->
 
-        .navbar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 250px;
-            height: 100%;
-            background-color: rgba(26, 26, 26, 0.66);
-            padding: 20px;
-            overflow-y: auto;
-            transition: left 0.3s;
-            color: white;
-        }
+  <!--      .navbar {-->
+  <!--          position: fixed;-->
+  <!--          left: 0;-->
+  <!--          top: 0;-->
+  <!--          width: 250px;-->
+  <!--          height: 100%;-->
+  <!--          background-color: rgba(26, 26, 26, 0.66);-->
+  <!--          padding: 20px;-->
+  <!--          overflow-y: auto;-->
+  <!--          transition: left 0.3s;-->
+  <!--          color: white;-->
+  <!--      }-->
 
-        .navbar .profile-pic {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto;
-        }
+  <!--      .navbar .profile-pic {-->
+  <!--          width: 60px;-->
+  <!--          height: 60px;-->
+  <!--          border-radius: 50%;-->
+  <!--          object-fit: cover;-->
+  <!--          margin: 0 auto;-->
+  <!--      }-->
 
-        .navbar h4 {
-            margin-top: 10px;
-            text-align: center;
-        }
+  <!--      .navbar h4 {-->
+  <!--          margin-top: 10px;-->
+  <!--          text-align: center;-->
+  <!--      }-->
 
-        .navbar ul {
-            list-style-type: none;
-            padding: 0;
+  <!--      .navbar ul {-->
+  <!--          list-style-type: none;-->
+  <!--          padding: 0;-->
 
-        }
+  <!--      }-->
 
-        .navbar ul li {
-            margin: 15px 0;
-            justify-content: center;
-        }
+  <!--      .navbar ul li {-->
+  <!--          margin: 15px 0;-->
+  <!--          justify-content: center;-->
+  <!--      }-->
 
-        .navbar ul li a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
+  <!--      .navbar ul li a {-->
+  <!--          color: white;-->
+  <!--          text-decoration: none;-->
+  <!--          display: flex;-->
+  <!--          align-items: center;-->
+  <!--      }-->
 
-        .navbar ul li a i {
-            margin-right: 10px;
-        }
+  <!--      .navbar ul li a i {-->
+  <!--          margin-right: 10px;-->
+  <!--      }-->
 
-        .navbar .highlight-section {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #333;
-            border-radius: 5px;
-        }
+  <!--      .navbar .highlight-section {-->
+  <!--          margin-top: 20px;-->
+  <!--          padding: 10px;-->
+  <!--          background-color: #333;-->
+  <!--          border-radius: 5px;-->
+  <!--      }-->
 
-        .content {
-            flex: 1;
-            padding: 20px;
-            margin-left: 270px;
-            transition: margin-left 0.3s;
-        }
+  <!--      .content {-->
+  <!--          flex: 1;-->
+  <!--          padding: 20px;-->
+  <!--          margin-left: 270px;-->
+  <!--          transition: margin-left 0.3s;-->
+  <!--      }-->
 
-        .toggle-btn {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            background-color: #897f8e;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 1000;
-        }
+  <!--      .toggle-btn {-->
+  <!--          position: fixed;-->
+  <!--          top: 10px;-->
+  <!--          left: 10px;-->
+  <!--          background-color: #897f8e;-->
+  <!--          color: white;-->
+  <!--          border: none;-->
+  <!--          padding: 10px;-->
+  <!--          cursor: pointer;-->
+  <!--          z-index: 1000;-->
+  <!--      }-->
 
-        .navbar-hidden {
-            left: -250px;
-        }
+  <!--      .navbar-hidden {-->
+  <!--          left: -250px;-->
+  <!--      }-->
 
-        .content-expanded {
-            margin-left: 20px;
-        }
+  <!--      .content-expanded {-->
+  <!--          margin-left: 20px;-->
+  <!--      }-->
 
-        .header {
-            padding: 20px;
-            display: flex;
-            justify-content: right;
-            align-items: center;
+  <!--      .header {-->
+  <!--          padding: 20px;-->
+  <!--          display: flex;-->
+  <!--          justify-content: right;-->
+  <!--          align-items: center;-->
 
-            {#border-bottom: 1px solid #ddd;#}
-            background-color: rgba(33, 75, 89, 0.76);
-            color: #68855d;
-        }
+  <!--          {#border-bottom: 1px solid #ddd;#}-->
+  <!--          background-color: rgba(33, 75, 89, 0.76);-->
+  <!--          color: #68855d;-->
+  <!--      }-->
 
-        .header input {
-            width: 40%;
-            padding: 9px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
+  <!--      .header input {-->
+  <!--          width: 40%;-->
+  <!--          padding: 9px;-->
+  <!--          border: 1px solid #ddd;-->
+  <!--          border-radius: 5px;-->
+  <!--      }-->
 
-        .user-profile {
-            display: flex;
-            align-items: center;
-        }
+  <!--      .user-profile {-->
+  <!--          display: flex;-->
+  <!--          align-items: center;-->
+  <!--      }-->
 
-        .user-profile .user-name {
-            margin-right: 10px;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-        }
+  <!--      .user-profile .user-name {-->
+  <!--          margin-right: 10px;-->
+  <!--          text-overflow: ellipsis;-->
+  <!--          overflow: hidden;-->
+  <!--          white-space: nowrap;-->
+  <!--      }-->
 
-        .user-profile img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
+  <!--      .user-profile img {-->
+  <!--          width: 40px;-->
+  <!--          height: 40px;-->
+  <!--          border-radius: 50%;-->
+  <!--      }-->
 
-        .stories {
-            padding-top: 20px;
-            padding-botton: 20px;
-            padding-left: 175px;
-            padding-right: 50px;
-            background-color: #2a2a2a;
-            border-radius: 10px;
-            color: white;
-        }
+  <!--      .stories {-->
+  <!--          padding-top: 20px;-->
+  <!--          padding-botton: 20px;-->
+  <!--          padding-left: 175px;-->
+  <!--          padding-right: 50px;-->
+  <!--          background-color: #2a2a2a;-->
+  <!--          border-radius: 10px;-->
+  <!--          color: white;-->
+  <!--      }-->
 
-        .story {
-            border: 1px solid rgba(221, 221, 221, 0.76);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            background-color: rgba(137, 127, 142, 0.38);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            color: black;
+  <!--      .story {-->
+  <!--          border: 1px solid rgba(221, 221, 221, 0.76);-->
+  <!--          border-radius: 10px;-->
+  <!--          padding: 20px;-->
+  <!--          margin-bottom: 20px;-->
+  <!--          background-color: rgba(137, 127, 142, 0.38);-->
+  <!--          transition: transform 0.3s ease, box-shadow 0.3s ease;-->
+  <!--          color: black;-->
 
-        }
+  <!--      }-->
 
-        .story:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: rgba(33, 75, 89, 0.76); 
-        }
+  <!--      .story:hover {-->
+  <!--          transform: translateY(-5px);-->
+  <!--          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);-->
+  <!--          background-color: rgba(33, 75, 89, 0.76); -->
+  <!--      }-->
 
-        .story-header {
-            display: flex;
-            justify-content: space-between;
-            font-size: 14px;
-            color: #999;
-        }
+  <!--      .story-header {-->
+  <!--          display: flex;-->
+  <!--          justify-content: space-between;-->
+  <!--          font-size: 14px;-->
+  <!--          color: #999;-->
+  <!--      }-->
 
-        .story-images {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
+  <!--      .story-images {-->
+  <!--          display: flex;-->
+  <!--          gap: 10px;-->
+  <!--          margin-top: 10px;-->
+  <!--      }-->
 
-        .story-images img {
-            width: calc(50% - 5px);
-            border-radius: 5px;
-        }
+  <!--      .story-images img {-->
+  <!--          width: calc(50% - 5px);-->
+  <!--          border-radius: 5px;-->
+  <!--      }-->
 
-        .story-actions {
-            margin-top: 10px;
-            display: flex;
-            gap: 10px;
-        }
+  <!--      .story-actions {-->
+  <!--          margin-top: 10px;-->
+  <!--          display: flex;-->
+  <!--          gap: 10px;-->
+  <!--      }-->
 
-        .story-actions button, .story-actions a {
-            padding: 5px 10px;
-            border: 1px solid #652f2f;
-            background-color: #fb3c3c;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
+  <!--      .story-actions button, .story-actions a {-->
+  <!--          padding: 5px 10px;-->
+  <!--          border: 1px solid #652f2f;-->
+  <!--          background-color: #fb3c3c;-->
+  <!--          cursor: pointer;-->
+  <!--          border-radius: 5px;-->
+  <!--          transition: background 0.3s ease;-->
+  <!--      }-->
 
-        .story-actions button:hover, .story-actions a:hover {
-            background-color: #4e2340;
-        }
+  <!--      .story-actions button:hover, .story-actions a:hover {-->
+  <!--          background-color: #4e2340;-->
+  <!--      }-->
 
-        .truncate {
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+  <!--      .truncate {-->
+  <!--          display: -webkit-box;-->
+  <!--          -webkit-line-clamp: 3;-->
+  <!--          -webkit-box-orient: vertical;-->
+  <!--          overflow: hidden;-->
+  <!--          text-overflow: ellipsis;-->
+  <!--      }-->
 
-        .gradient-text {
-            background: linear-gradient(45deg, rgba(209, 205, 205, 0.76), #897f8e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+  <!--      .gradient-text {-->
+  <!--          background: linear-gradient(45deg, rgba(209, 205, 205, 0.76), #897f8e);-->
+  <!--          -webkit-background-clip: text;-->
+  <!--          -webkit-text-fill-color: transparent;-->
+  <!--      }-->
 
-        .liquid-btn {
-            background-color: #002366;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: background-color 0.3s ease;
-        }
+  <!--      .liquid-btn {-->
+  <!--          background-color: #002366;-->
+  <!--          color: #fff;-->
+  <!--          border: none;-->
+  <!--          padding: 10px 20px;-->
+  <!--          border-radius: 5px;-->
+  <!--          cursor: pointer;-->
+  <!--          position: relative;-->
+  <!--          overflow: hidden;-->
+  <!--          transition: background-color 0.3s ease;-->
+  <!--      }-->
 
-        .liquid-btn:after {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.3);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+  <!--      .liquid-btn:after {-->
+  <!--          content: '';-->
+  <!--          display: block;-->
+  <!--          position: absolute;-->
+  <!--          top: 0;-->
+  <!--          left: 0;-->
+  <!--          width: 100%;-->
+  <!--          height: 100%;-->
+  <!--          background: rgba(255, 255, 255, 0.3);-->
+  <!--          opacity: 0;-->
+  <!--          transition: opacity 0.3s ease;-->
+  <!--      }-->
 
-        .liquid-btn:hover:after {
-            opacity: 1;
-            animation: ripple 1s infinite;
-        }
+  <!--      .liquid-btn:hover:after {-->
+  <!--          opacity: 1;-->
+  <!--          animation: ripple 1s infinite;-->
+  <!--      }-->
 
-        @keyframes ripple {
-            0% {
-                transform: scale(0);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
+  <!--      @keyframes ripple {-->
+  <!--          0% {-->
+  <!--              transform: scale(0);-->
+  <!--              opacity: 1;-->
+  <!--          }-->
+  <!--          100% {-->
+  <!--              transform: scale(4);-->
+  <!--              opacity: 0;-->
+  <!--          }-->
+  <!--      }-->
 
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
+  <!--      .pagination {-->
+  <!--          display: flex;-->
+  <!--          justify-content: center;-->
+  <!--          margin-top: 20px;-->
+  <!--      }-->
 
-        .pagination a {
-            color: #333;
-            padding: 8px 16px;
-            text-decoration: none;
-            border: 1px solid #ddd;
-            margin: 0 4px;
-            border-radius: 4px;
-            transition: background 0.3s ease;
-        }
+  <!--      .pagination a {-->
+  <!--          color: #333;-->
+  <!--          padding: 8px 16px;-->
+  <!--          text-decoration: none;-->
+  <!--          border: 1px solid #ddd;-->
+  <!--          margin: 0 4px;-->
+  <!--          border-radius: 4px;-->
+  <!--          transition: background 0.3s ease;-->
+  <!--      }-->
 
-        .pagination a:hover {
-            background-color: #e0f2f1;
-        }
+  <!--      .pagination a:hover {-->
+  <!--          background-color: #e0f2f1;-->
+  <!--      }-->
 
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-        }
-    </style>
+  <!--      @media (max-width: 768px) {-->
+  <!--          .container {-->
+  <!--              flex-direction: column;-->
+  <!--          }-->
+  <!--      }-->
+  <!--  </style>-->
 </head>
 <body>
 {% load static %}
