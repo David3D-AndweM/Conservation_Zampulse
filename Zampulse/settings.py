@@ -19,6 +19,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
+
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 # DJANGO_SECRET_KEY = "b@x!8q&$3j%k^l)m+n_o:p{q}r~s|t>u<v=w?y.z;"
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -112,9 +113,8 @@ STATICFILES_DIRS = [
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
+LE = 'sjndabedjxunIUN2U2NUN2'
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-LE = 'sjndabedjxunIUN2U2NUN2'
