@@ -72,6 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "Zampulse.wsgi.application"
 
+
 # Database
 DATABASES = {
     "default": {
