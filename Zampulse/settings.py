@@ -81,7 +81,7 @@ DATABASES = {
     }
 }
 
-DATABASES["default"] = dj_database_url.parse("postgresql://zampulsedb_user:S6H7OJS2BCtYy7R2OEuEKHSYEjOwNziz@dpg-cq7kt6dds78s73d8q7i0-a.oregon-postgres.render.com/zampulsedb")
+DATABASES["default"] = dj_database_url.parse("postgresql://zampulsedb_user:3zcsjL1vjzOMqNRuYS2C7nLpWzvbJlwl@dpg-cqd96ftumphs73dto6gg-a/zampulsedb_1xp2")
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
