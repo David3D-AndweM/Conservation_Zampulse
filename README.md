@@ -23,7 +23,7 @@ Zampulse/ │ ├── Zampulse/ │ ├── init.py │ ├── settings.p
 
 ### Prerequisites
 
-- Python 3.x
+- Python 3.12
 - Django 5.0.6
 
 ### Installation
