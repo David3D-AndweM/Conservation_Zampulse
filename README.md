@@ -1,6 +1,8 @@
 # Zampulse
-visit my finished project here: https://about-zampulse.my.canva.site/
+visit my finished project about here: https://about-zampulse.my.canva.site/
 ![Zampulse](https://via.placeholder.com/728x90.png?text=ZambiaCanCode+Header+Image)
+Try my application here
+![Link to deployed app]((https://conservation-zampulse-1.onrender.com/))
 
 Zampulse is a Django-based web application created to help you manage your projects efficiently. This documentation provides an overview of the project structure, setup instructions, and key features.
 
