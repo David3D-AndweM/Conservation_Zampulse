@@ -4,7 +4,9 @@ visit my finished project about here: https://about-zampulse.my.canva.site/
 Try my application here
 ![Link to deployed app]((https://conservation-zampulse-1.onrender.com/))
 
-Zampulse is a Django-based web application created to help you manage your projects efficiently. This documentation provides an overview of the project structure, setup instructions, and key features.
+Zampulse is a Django-based web application, It is a new initiative aimed at unifying community efforts in freshwater conservation. It will act as a central platform where users can share and access information about freshwater issues in Zambia and The stories will be used to mobilise support for policy reforms and community-based conservation efforts in Chingola, Zambia. The goal is to raise awareness, strengthen local communities, and promote sustainable solutions.. 
+
+This documentation provides an overview of the project structure, setup instructions, and key features.
 
 ## Features
 
