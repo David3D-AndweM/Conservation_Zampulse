@@ -10,11 +10,20 @@ This documentation provides an overview of the project structure, setup instruct
 
 ## Features
 
-- User Authentication
-- Admin Dashboard
-- Database Management
-- Template Rendering
-- Session Management
+Share and Explore Stories
+Users can create and share stories about freshwater issues, conservation efforts, and personal experiences. Each story can include images, captions, and detailed descriptions to engage and inform the community.
+
+User Profiles
+Each user can create a personalized profile with a biography, profile image, and location information. Profiles help users connect and follow each other to build a supportive network of conservation advocates.
+
+Follow and Engage
+Users can follow other profiles to stay updated with their posts and stories. This feature fosters community interaction and keeps users informed about the latest conservation efforts and discussions.
+
+Like and Support Stories
+Users can like stories to show their support and appreciation. This feature helps highlight popular stories and encourages user engagement.
+
+Explore Page
+An explore page allows users to discover stories from all users on the platform. This feature helps surface new and diverse content, promoting broader awareness of freshwater issues.
 
 ## Project Structure
 
