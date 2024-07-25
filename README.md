@@ -35,23 +35,55 @@ Zampulse/ │ ├── Zampulse/ │ ├── init.py │ ├── settings.p
     ```sh
     git clone https://github.com/David3D-AndweM/Zampulse.git
     ```
+2. Navigate to Zampulse directory # Create a New Virtual Environment
 
-2. Install dependencies
+# Open your terminal or command prompt and navigate to the root of your project directory (if you haven't already).
+# Then, create a new virtual environment using the following command:
+python -m venv env
+
+# Activate the virtual environment:
+# On Windows:
+```sh
+env\Scripts\activate
+```
+# On macOS and Linux:
+```sh
+source env/bin/activate
+```
+# Navigate to Zampulse Directory and Modify ALLOWED_HOSTS Setting
+
+# Open the `settings.py` file located in the `Zampulse` directory.
+# Find the line that sets the `ALLOWED_HOSTS` variable. It should look like this:
+# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(" ")
+
+# Change the `ALLOWED_HOSTS` setting to allow `localhost` by default. Replace the current line with:
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+# Install Dependencies
+
+# If you haven't installed Django and other project dependencies in the new environment, run:
+
+# Restart Your Django Server
+
+# If your Django development server is running, restart it to apply the changes. You can do this by stopping the server (usually with `Ctrl+C` in the terminal) and then starting it again with:
+
+
+3. Install dependencies
 
     ```sh
     pip install -r requirements.txt
     ```
 
-3. Apply migrations
+4. Apply migrations
 
     ```sh
     python manage.py migrate
     ```
 
-4. Run the server
+5. Run the server
 
     ```sh
-    python manage.py runserver
+    python manage.py runserver 
     ```
 
 ## Usage
